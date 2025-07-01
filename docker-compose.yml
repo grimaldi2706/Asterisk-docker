@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  asterisk:
+    image: andrius/asterisk
+    container_name: asterisk
+    restart: unless-stopped
+    ports:
+      - "5060:5060/udp"     # Puerto SIP
+      - "5060:5060/tcp"
+      - "10000-10100:10000-10100/udp" # RTP (voz)
+    volumes:
+      - ./config:/etc/asterisk
+    environment:
+      - TZ=America/Bogota
