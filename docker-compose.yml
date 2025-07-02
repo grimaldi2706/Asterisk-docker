@@ -1,15 +1,15 @@
-version: '3'
-
+version: "3.8"
 services:
   asterisk:
-    image: andrius/asterisk
-    container_name: asterisk
-    restart: unless-stopped
+    build: .
+    image: asterisk20-chansip
+    container_name: asterisk20
     ports:
-      - "5060:5060/udp"     # Puerto SIP
-      - "5060:5060/tcp"
-      - "10000-10100:10000-10100/udp" # RTP (voz)
+      - "5060:5060/udp"          # Puerto SIP UDP
+      - "10000-10010:10000-10010/udp"  # RTP de audio
     volumes:
-      - ./config:/etc/asterisk
-    environment:
-      - TZ=America/Bogota
+      - ./config/sip.conf:/etc/asterisk/sip.conf
+      - ./config/extensions.conf:/etc/asterisk/extensions.conf
+      - ./config/modules.conf:/etc/asterisk/modules.conf
+      - ./logs:/var/log/asterisk
+      
