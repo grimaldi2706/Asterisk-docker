@@ -2,6 +2,8 @@
 
 Este proyecto contiene una configuración de un servidor Asterisk que se ejecuta dentro de un contenedor de Docker. Está diseñado para ser una base portable, fácil de desplegar y personalizable para una centralita VoIP.
 
+<img src="result.png" alt="result" width="600">
+
 ## Características Principales
 
 - **Despliegue con Docker:** Utiliza Docker y Docker Compose para un entorno aislado y consistente.
